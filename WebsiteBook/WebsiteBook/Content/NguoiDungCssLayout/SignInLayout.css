@@ -1,0 +1,67 @@
+﻿body {
+    box-sizing: border-box;
+    background-color: #4b4743;
+}
+
+.Signin {
+    width: 300px;
+    height: auto;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.Signin h2 {
+    font-size:18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: #337ab7;
+    color: white;
+    border-color: #337ab7;
+    border-radius: 4px;
+    width:250px;
+    height:25px;
+}
+#form-group{
+    margin-top:10px;
+}
+.Signin span {
+    color: #969547;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+#form-group input {
+    height: 25px;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    border-collapse: collapse;
+    background-color: antiquewhite;
+}
+#btnSubmit {
+    width: 50px;
+    height: 30px;
+    background-color: #ff6a00;
+    border: 1px solid #e8e8e8;
+    border-color: #ff6a00;
+    border-collapse: collapse;
+    border-radius: 4px;
+    font-weight: bolder;
+    margin-top:10px;
+}
+
+#homepage {
+    text-align: right;
+    margin: 10px 15px;
+}
+
+#homepage a {
+   color: #969547;
+   font-weight: bold;
+   font-family: Arial;
+   font-size: 18px;
+   text-decoration: none;
+}
+
+#homepage a:hover {
+     color: black;
+}

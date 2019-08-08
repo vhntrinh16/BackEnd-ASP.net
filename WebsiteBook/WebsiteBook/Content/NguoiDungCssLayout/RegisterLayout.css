@@ -1,0 +1,73 @@
+﻿body {
+    box-sizing: border-box;
+    background-color: #4b4743;
+}
+
+#register {
+    width: 400px;
+    height: auto;
+    border: 1px solid #e8e8e8;
+    border-radius:4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    
+}
+#register h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: #337ab7;
+    color: white;
+    border-color: #337ab7;
+    border-radius:4px;
+    height:50px;
+    width:300px;
+    line-height:50px;
+}
+
+.form-group{
+    margin-top:10px;
+}
+    .form-group i {
+        color: #969547;
+    }
+.control-label {
+    color: #969547;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight:bold;
+    /*margin-right:140px;*/
+}
+.form-control {
+    width: 250px;
+    height: 25px;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    border-collapse: collapse;
+    background-color:antiquewhite;
+    
+}
+.btn {
+    width: 60px;
+    height: 30px;
+    background-color: #ff6a00;
+    border: 1px solid #e8e8e8;
+    border-color: #ff6a00;
+    border-collapse: collapse;
+    border-radius: 4px;
+    font-weight:bolder;
+}
+
+#homepage{
+    text-align:right;
+    margin:10px 15px;
+}
+#homepage a {
+    color: #969547;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 18px;
+    text-decoration:none;
+}
+#homepage a:hover{
+    color:black;
+}
+    

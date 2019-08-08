@@ -1,0 +1,98 @@
+﻿@model WebsiteBook.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Details Book</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0 }", Model.Price)đ
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/imagebook/" + Model.CoverImage)" width="50" height="50"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongTon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NXB.TenNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NXB.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChuDe.TenChuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDe.TenChuDe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { @MaSach = Model.BookID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<style>
+    h2 {
+        font-size: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bolder;
+    }
+    .dl-horizontal{
+        border-radius:4px;
+        background-color: #e8e8e8;
+        padding:0 10px;
+    }
+    dt, dd {
+        margin-top: 10px;
+    }
+</style>

@@ -1,0 +1,70 @@
+﻿@using WebsiteBook.Models;
+@model Book
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<link href="~/Content/NguoiDungCssLayout/DetailLayout.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "DetailBook";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+
+}
+
+@*
+<div class="header_menu">
+    <div id="menu_left">
+        <ul>
+            <li><a href="@Url.Action("Index","Home")"><i class='fas fa-home'></i> Home</a></li>
+            <li><a href="#"> About</a></li>
+            <li><a href="#"> Book</a></li>
+            <li><a href="@Url.Action("GioHang","GioHang")"><i style="line-height:25px;" class='fas fa-shopping-cart'></i> Cart</a></li>
+        </ul>
+    </div>
+
+    <div id="menu_right">
+        @using (Html.BeginForm())
+        {
+
+            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Search" })
+            <Button class="btn bnt-primary"><i class="fa fa-search" style="color:white"></i></Button>
+        }
+    </div>
+</div>*@
+<div class="content-detail">
+   @* <div id="content_left">
+        <h3><i class='far fa-gem'></i> Thể loại</h3>
+        @Html.Action("TheLoaiPartial", "TheLoai")
+    </div>*@
+
+    <div id="detail_right">
+        <div id="row1">
+            <div id="col-4">
+                <img src="@Url.Content("~/imagebook/"+Model.CoverImage)" width="180" height="250" alt="image" />
+            </div>
+            <div id="md-8">
+                <h3><i class='fas fa-book'></i> @Model.BookName</h3>
+                <h4>Chủ đề: @ViewBag.TenChuDe</h4>
+                <h4>Nhà xuất bản: @ViewBag.TenNXB</h4>
+                <div class="fb-like fb_iframe_widget" data-href="https://sachvui.com/ebook/bi-mat-hanh-trinh-tinh-yeu.4740.html" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=725719534131710&amp;container_width=393&amp;href=https%3A%2F%2Fsachvui.com%2Febook%2Fbi-mat-hanh-trinh-tinh-yeu.4740.html&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=large"><span style="vertical-align: bottom; width: 159px; height: 28px;"><iframe name="f15ab7b9e79b9d4" width="1000px" height="1000px" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.8/plugins/like.php?action=like&amp;app_id=725719534131710&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df3766d498398d1c%26domain%3Dsachvui.com%26origin%3Dhttps%253A%252F%252Fsachvui.com%252Ff2e738e26efef58%26relation%3Dparent.parent&amp;container_width=393&amp;href=https%3A%2F%2Fsachvui.com%2Febook%2Fbi-mat-hanh-trinh-tinh-yeu.4740.html&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=large" style="border: none; visibility: visible; width: 159px; height: 28px;" class=""></iframe></span></div>
+                <h4> @Model.Description</h4>
+                <h4>Số lượng: @Model.SoLuongTon</h4>
+                <h4>Giá: @String.Format("{0:0,0 }", Model.Price) đ</h4>
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.BookID, @strURL = Request.Url.ToString() }))
+                {
+                    <div id="buy-now-button">
+                        <input type="submit" class='fas' value="&#xf07a; Buy now" id="btn btn-primary">
+                    </div>
+                }
+                </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Bình luận</div>
+    <div class="panel-body">
+        <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop" data-href="http://sachvui.com/ebook/bi-mat-hanh-trinh-tinh-yeu.4740.html" data-numposts="5" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=725719534131710&amp;container_width=604&amp;height=100&amp;href=http%3A%2F%2Fsachvui.com%2Febook%2Fbi-mat-hanh-trinh-tinh-yeu.4740.html&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.8&amp;width=550">
+            <span style="vertical-align: bottom; width: 550px; height: 482px;">
+            <iframe name="f1cb298d91a72bc" width="550" height="100" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.8/plugins/comments.php?app_id=725719534131710&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df2594c20eb2f8d4%26domain%3Dsachvui.com%26origin%3Dhttps%253A%252F%252Fsachvui.com%252Ff2e738e26efef58%26relation%3Dparent.parent&amp;container_width=604&amp;height=100&amp;href=http%3A%2F%2Fsachvui.com%2Febook%2Fbi-mat-hanh-trinh-tinh-yeu.4740.html&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.8&amp;width=550" style="border: none; visibility: visible; width: 550px; height: 482px;" class=""></iframe></span>
+        </div>
+     </div>
+</div>
+
+

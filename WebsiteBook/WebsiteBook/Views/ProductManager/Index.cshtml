@@ -1,0 +1,126 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteBook.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+    <p>
+        @Html.ActionLink("Add Book", "Add")
+    </p>
+<div class="form-horizontal">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().BookID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CoverImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().UpdateDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().SoLuongTon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().MaNXB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().MaChuDe)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @String.Format("{0:0,0 }", item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div id="Image"><img src="@Url.Content("~/imagebook/"+item.CoverImage)" width="50" height="50" /></div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NXB.TenNXB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { @MaSach = item.BookID }) |
+                    @Html.ActionLink("Details", "Details", new { @MaSach = item.BookID }) |
+                    @Html.ActionLink("Delete", "Delete", new { @MaSach = item.BookID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+    <center>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount</center>
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+
+    <style>
+        p {
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+        }
+        .form-horizontal {
+            border-radius: 4px;
+            background-color: #e8e8e8;
+            padding: 0 10px;
+        }
+
+        .MenuTrang {
+            display: inline;
+        }
+
+        .pagination-container ul {
+            list-style: none;
+            text-align: center;
+        }
+
+            .pagination-container ul li {
+                display: inline;
+            }
+
+                .pagination-container ul li a {
+                    margin: 0 5px;
+                    position: relative;
+                    padding: 0 5px;
+                }
+
+        .pagination-container li a:hover {
+            background-color: #e8e8e8;
+        }
+    </style>
+

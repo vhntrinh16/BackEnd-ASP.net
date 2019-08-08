@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86f6d37ba3804056a366ebc6ceaf27c2" Name="Diagram1">
+        <EntityTypeShape EntityType="BookManagementModel.Book" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.ChuDe" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.NXB" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.Order" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.OrderDetail" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.sysdiagram" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.TacGia" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.ThamGia" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.User" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="BookManagementModel.FK_Book_ChuDe" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_Book_NXB" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_OrderDetails_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_ThamGia_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_OrderDetails_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_ThamGia_TacGia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

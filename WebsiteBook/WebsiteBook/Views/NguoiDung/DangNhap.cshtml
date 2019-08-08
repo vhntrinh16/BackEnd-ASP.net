@@ -1,0 +1,32 @@
+﻿<link href="~/Content/NguoiDungCssLayout/SignInLayout.css" rel="stylesheet" />
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<center>
+    <div class="Signin">
+        <h2>Sign In</h2>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class= "form-horizontal" }))
+        {
+            <div id="form-group">
+                <span>Username: </span>
+                @Html.TextBox("txtTaiKhoan")
+            </div>
+            <div id="form-group">
+                <span>Password: </span>
+                &nbsp;<input name="txtMatKhau" type="password" /><br />
+            </div>
+            <input type="submit" id="btnSubmit" name="btnSubmit" value="Login" />
+
+            <div id="homepage">
+                <i class='fas fa-home'></i>
+                @Html.ActionLink("Home", "Index", "Home")
+            </div>
+        }
+    </div>
+    <h2>@ViewBag.ThongBao</h2>
+</center>

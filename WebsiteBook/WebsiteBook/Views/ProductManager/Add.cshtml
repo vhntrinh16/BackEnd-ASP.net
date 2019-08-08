@@ -1,0 +1,130 @@
+﻿@model WebsiteBook.Models.Book
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea'});</script>
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Add Book</h2>
+
+@using (Html.BeginForm("Add", "ProductManager", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BookName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CoverImage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fileUpload" />
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UpdateDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UpdateDay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UpdateDay, "", new { @class = "text-danger" })
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNXB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaNXB")
+
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaChuDe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaChuDe")
+
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="Description"></textarea>
+                
+            </div>
+        </div><br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<style>
+    h2{
+        font-size:20px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight:bolder;
+    }
+    .form-horizontal{
+        border-radius:4px;
+        background-color:#e8e8e8;
+        padding:0 10px;
+    }
+    
+    .btn {
+        margin-top: 10px;
+        float: right;
+    }
+    .form-group label{
+        margin-right:10px;
+        font-weight:bold;
+    }
+    .form-group input {
+        border-radius:4px;
+        border-collapse:collapse;
+    }
+    #MaNXB{
+        border-radius:4px;
+    }
+    #MaChuDe{
+        border-radius:4px;
+    }
+
+    /*Css Description*/
+    .tox {
+        border-radius:4px;
+    }
+
+</style>

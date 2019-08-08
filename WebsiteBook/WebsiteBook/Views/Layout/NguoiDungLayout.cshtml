@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/NguoiDungCssLayout/templatemo_style.css" rel="stylesheet" />
+    <link href="~/Content/NguoiDungCssLayout/NguoiDung.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Nivo_Slider/nivo-slider.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="~/Nivo_Slider/jquery.nivo.slider.pack.js"></script>
+    <script src="~/Nivo_Slider/jquery.nivo.slider.js"></script>
+
+    <title></title>
+</head>
+<body>
+
+    <div class="DangNhapDangKy">
+        @Html.Action("GioHangPartial", "GioHang")
+        <i class="fa fa-lock" style="margin-top:12.5px"></i>
+        @Html.ActionLink("Đăng Ký", "DangKy", "NguoiDung")
+
+        <i class="fas fa-sign-in-alt" style="margin-top:12.5px"></i>
+        @Html.ActionLink("Đăng Nhập", "DangNhap", "NguoiDung")
+
+        <div id="icDienThoai">
+            <i class="fa fa-phone"></i>
+            (083) 0123459
+        </div>
+    </div>
+
+    <div id="templatemo_container">
+        <div id="templatemo_menu">
+            <div id="menu">
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")" class="current"><i class='fas fa-home'></i> Home</a></li>
+                    <li><a href="@Url.Action("ProductPartial", "Product")">Books</a></li>
+                    <li><a href="subpage.html">Contact</a></li>
+                    <li><a href="@Url.Action("About", "About")">About</a></li>
+                    <li><a href="#">Guide</a></li>
+                    <li><a href="@Url.Action("Login", "LoginAdmin")">Admin</a></li>
+                </ul>
+            </div>
+            <div id="menu-right">
+                <div id="txtTimKiem">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Search" })
+                        <Button class="btn btn-primary"><i class="fa fa-search" style="color:white"></i></Button>
+                    }
+                </div>
+            </div>
+
+        </div> <!-- end of menu -->
+
+        <div id="templatemo_header">
+            <div id="slider" class="nivoSlider">
+                <img src="~/Content/NguoiDungCssLayout/templatemo_header_bg.jpg" style="height:250px;" />
+                <img src="~/Public/images/bnbook1.jpg" style="height:240px;" />
+                <img src="~/Public/images/bnbook2.jpg" />
+            </div>
+        </div> <!-- end of header -->
+        <div id="templatemo_content">
+            <div id="templatemo_content_left">
+                <div class="templatemo_content_left_section">
+                    <h1><i class='far fa-gem'></i> Thể Loại</h1>
+                    @Html.Action("TheLoaiPartial", "TheLoai")
+                </div>
+                <div class="templatemo_content_left_section">
+                    <h1><i class='far fa-gem'></i> Nhà xuất bản</h1>
+                    @Html.Action("NXBPartial", "NXB")
+                </div>
+                <div class="templatemo_content_left_section">
+                    <a href="https://sachvui.com"><img style="border:0;width:88px;height:31px" src="~/Public/images/book1.jpg" alt="Valid XHTML 1.0 Transitional" width="88" height="31" vspace="8" border="0" /></a>
+                    <a href="https://ebook.vn"><img style="border:0;width:88px;height:31px" src="~/Public/images/book2.jpg" alt="Valid CSS!" vspace="8" border="0" /></a>
+                </div>
+            </div> <!-- end of content left -->
+            @RenderBody()
+        </div> <!-- end of content -->
+
+        <div id="templatemo_footer">
+
+            <a href="subpage.html">Home</a> | <a href="subpage.html">Search</a> | <a href="subpage.html">Books</a> | <a href="#">New Releases</a> | <a href="#">FAQs</a> | <a href="#">Contact Us</a><br />
+            Copyright © 2048 <a href="#"><strong>Your Company Name</strong></a> | <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent" title="free css templates">Free CSS Templates</a>
+        </div>
+        <!-- end of footer -->
+        <!--  Free CSS Template www.templatemo.com -->
+    </div> <!-- end of container -->
+    <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+    <script type="text/javascript">
+        $(window).on('load',function () {
+            $('#slider').nivoSlider({
+                controlNav: false,
+                nextText: '',
+                prevText: ''
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+﻿@using WebsiteBook.Models;
+@model List<GioHang>
+<link href="~/Content/NguoiDungCssLayout/CartLayout.css" rel="stylesheet" />
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@*
+<div id="home">
+    <h2 id="TrangChu">
+        <a href="@Url.Action("Index", "Home")"><i class='fas fa-home'></i> Home</a>
+        <a href="@Url.Action("ProductPartial", "Product")">Book</a></h2>
+</div>*@
+
+<h3>Giỏ hàng của bạn <i class='fas fa-shopping-basket'></i></h3>
+<table border="1">
+    <tr>
+        <th>Mã</th>
+
+        <th>Tên sách</th>
+
+        <th>Hình ảnh</th>
+
+        <th>Giá </th>
+
+        <th>Số lượng </th>
+
+        <th>Thành tiền </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.iMaSP</td>
+
+            <td>@item.sTenSP</td>
+
+            <td><a href="@Url.Action("DetailBook","Product",new {@MaSach=item.iMaSP })"><img src="@Url.Content("~/imagebook/" + item.sHinhAnh)" width="50" height="50" /></a></td>
+
+            <td>@String.Format("{0:0,0 }", item.dDonGia) đ</td>
+
+            <td> @item.iSoLuong</td>
+
+            <td> @String.Format("{0:0,0 }", item.ThanhTien) đ</td>
+        </tr>
+    }
+    <tr id="edit">
+        <td colspan="6" style="text-align:right" ><i class='fas fa-edit'></i> @Html.ActionLink("Edit", "SuaGioHang")</td>
+    </tr>
+    <tr>
+        <td colspan="6" style="text-align:right;">
+            @using (Html.BeginForm("DatHang", "GioHang"))
+            {
+                <input type="submit" value="Đặt hàng" />
+            }
+        </td>
+    </tr>
+</table>
+
+<style>
+    h3 {
+        float: left;
+        width: 660px;
+        padding-left: 20px;
+        color:#8376ae;
+    }
+    
+    #edit a{
+        text-align:right;
+        text-decoration:none;
+        color:#4800ff;
+        font-family:'Arial Nova';
+    }
+        #edit a:hover {
+            color: #fff;
+        }
+</style>
+
